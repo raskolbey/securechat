@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureChat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          SecureChat
+        </div>
+
+        <div class="my-identity">
+          <div class="label">Senin nickin</div>
+          <div class="nick-row">
+            <span id="my-nick">…</span>
+            <button id="copy-nick" class="icon-btn" title="Kopyala">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+          </div>
+          <div class="conn-status" id="conn-status">
+            <span class="dot"></span>
+            <span id="conn-label">Bağlanıyor…</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label">Çevrimiçi</div>
+      <div class="user-list" id="user-list">
+        <div class="empty-list">Henüz başka kullanıcı yok</div>
+      </div>
+
+      <div class="sidebar-footer">
+        <input id="search-nick" type="text" placeholder="Nick ara veya yaz…" autocomplete="off" spellcheck="false" />
+        <button id="start-chat-btn">Başlat</button>
+      </div>
+    </aside>
+
+    <!-- ── Main ── -->
+    <main class="main">
+
+      <div id="empty-state" class="empty-state">
+        <div class="empty-lock">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h2>SecureChat</h2>
+        <p>Uçtan uca şifreli mesajlaşma</p>
+        <p class="hint">Soldan bir kullanıcı seç veya nickin bir arkadaşınla paylaş.</p>
+        <div class="e2e-pill">🔒 Sunucu mesajlarınızı okuyamaz</div>
+      </div>
+
+      <div id="chat-window" class="chat-window" style="display:none">
+        <div class="chat-header">
+          <div class="chat-title" id="chat-title"></div>
+          <div class="e2e-badge">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            Uçtan Uca Şifreli
+          </div>
+        </div>
+
+        <div class="messages" id="messages"></div>
+
+        <div class="input-area">
+          <input id="msg-input" type="text" placeholder="Mesaj yaz…" autocomplete="off" spellcheck="false" />
+          <button id="send-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
